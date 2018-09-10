@@ -1741,18 +1741,22 @@
 
     subroutine ofwin_setkeypresscallback(fcn)
     procedure(keypresscallback) :: fcn
+    call ofwin_setkeypresscallback_c(fcn)
     end subroutine ofwin_setkeypresscallback
 
     subroutine ofwin_setmousemotioncallback(fcn)
     procedure(mousemotioncallback) :: fcn
+    call ofwin_setmousemotioncallback_c(fcn)
     end subroutine ofwin_setmousemotioncallback
 
     subroutine ofwin_setbuttonpresscallback(fcn)
     procedure(buttonpresscallback) :: fcn
+    call ofwin_setbuttonpresscallback_c(fcn)
     end subroutine ofwin_setbuttonpresscallback
 
     subroutine ofwin_setbuttonreleasecallback(fcn)
     procedure(buttonreleasecallback) :: fcn
+    call ofwin_setbuttonreleasecallback_c(fcn)
     end subroutine ofwin_setbuttonreleasecallback
 
     subroutine ofwin_start()
@@ -1966,14 +1970,17 @@
 
     subroutine ofwin_setswapbuffersfunction(fcn)
     procedure(swapbuffersfunction) :: fcn
+    call ofwin_setswapbuffersfunction_c(fcn)
     end subroutine ofwin_setswapbuffersfunction
 
     subroutine ofwin_setmakecurrentfunction(fcn)
     procedure(makecurrentfunction) :: fcn
+    call ofwin_setmakecurrentfunction_c(fcn)
     end subroutine ofwin_setmakecurrentfunction
 
     subroutine ofwin_setupdatecontextfunction(fcn)
     procedure(updatecontextfunction) :: fcn
+    call ofwin_setupdatecontextfunction_c(fcn)
     end subroutine ofwin_setupdatecontextfunction
 
     subroutine ofwin_resizewindow(x, y, width, height)
