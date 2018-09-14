@@ -204,6 +204,13 @@
         integer(c_int), intent(out) :: val
         end subroutine of_getreturnedvalue_c
 
+        subroutine of_adddatafilepath_c(newpath)
+        !dec$ attributes dllimport,c,reference :: of_adddatafilepath
+        import
+        implicit none
+        character(kind=c_char,len=1), dimension(*), intent(in) :: newpath
+        end subroutine of_adddatafilepath_c
+
         subroutine ofwin_activate_c(id) bind(c,name='ofwin_activate')
         !DEC$ ATTRIBUTES DLLIMPORT :: ofwin_activate
         import
@@ -1503,6 +1510,7 @@
     public :: of_initialize
     public :: of_cleanup
     public :: of_getreturnedvalue
+    public :: of_adddatafilepath
     public :: ofwin_activate
     public :: ofwin_createproxy
     public :: ofwin_setwindowname
@@ -1708,6 +1716,12 @@
     call of_getreturnedvalue_c(cval)
     val = to_f(cval)
     end subroutine of_getreturnedvalue
+
+    subroutine of_adddatafilepath(newpath)
+    !! add a path to the start of the osg search path list
+    character(len=*), intent(in) :: newpath
+    call of_adddatafilepath_c(to_c(newpath))
+    end subroutine of_adddatafilepath
 
     subroutine ofwin_activate(id)
     integer(int32), intent(in) :: id
